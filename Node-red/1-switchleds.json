@@ -1,0 +1,284 @@
+[
+    {
+        "id": "415b8b5a.3d5864",
+        "type": "rpi-gpio out",
+        "z": "adc71ddf.1f101",
+        "name": "LED1",
+        "pin": "12",
+        "set": false,
+        "level": "0",
+        "out": "out",
+        "x": 804,
+        "y": 108,
+        "wires": []
+    },
+    {
+        "id": "1bc30189.c504ce",
+        "type": "rpi-gpio out",
+        "z": "adc71ddf.1f101",
+        "name": "LED3",
+        "pin": "38",
+        "set": false,
+        "level": "0",
+        "out": "out",
+        "x": 794,
+        "y": 271,
+        "wires": []
+    },
+    {
+        "id": "533a573a.cac658",
+        "type": "rpi-gpio out",
+        "z": "adc71ddf.1f101",
+        "name": "LED2",
+        "pin": "36",
+        "set": false,
+        "level": "0",
+        "out": "out",
+        "x": 803,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c2838537.7beb98",
+        "type": "switch",
+        "z": "adc71ddf.1f101",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 3,
+        "x": 460.5,
+        "y": 168,
+        "wires": [
+            [
+                "987be8bb.5a2718"
+            ],
+            [
+                "f39d703a.3b294"
+            ],
+            [
+                "91520154.55803"
+            ]
+        ]
+    },
+    {
+        "id": "d22e8a3f.851408",
+        "type": "ui_switch",
+        "z": "adc71ddf.1f101",
+        "name": "",
+        "label": "Switch random",
+        "group": "f150c279.744d5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 94,
+        "y": 104,
+        "wires": [
+            [
+                "3aae5585.9e919a"
+            ]
+        ]
+    },
+    {
+        "id": "4fcaa07e.61253",
+        "type": "function",
+        "z": "adc71ddf.1f101",
+        "name": "Get Random",
+        "func": "function getRandomInt(min, max) {\n    return Math.floor(Math.random() * (max - min + 1)) + min;\n}\nmsg.payload = getRandomInt(0, 2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 353.5,
+        "y": 96,
+        "wires": [
+            [
+                "c2838537.7beb98"
+            ]
+        ]
+    },
+    {
+        "id": "3aae5585.9e919a",
+        "type": "switch",
+        "z": "adc71ddf.1f101",
+        "name": "On/Off",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 227.5,
+        "y": 224,
+        "wires": [
+            [
+                "4fcaa07e.61253"
+            ],
+            [
+                "96ab73d4.e666f"
+            ]
+        ]
+    },
+    {
+        "id": "987be8bb.5a2718",
+        "type": "change",
+        "z": "adc71ddf.1f101",
+        "name": "On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 602,
+        "y": 125,
+        "wires": [
+            [
+                "415b8b5a.3d5864"
+            ]
+        ]
+    },
+    {
+        "id": "f39d703a.3b294",
+        "type": "change",
+        "z": "adc71ddf.1f101",
+        "name": "On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 602,
+        "y": 166,
+        "wires": [
+            [
+                "533a573a.cac658"
+            ]
+        ]
+    },
+    {
+        "id": "91520154.55803",
+        "type": "change",
+        "z": "adc71ddf.1f101",
+        "name": "On",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 599,
+        "y": 212,
+        "wires": [
+            [
+                "1bc30189.c504ce"
+            ]
+        ]
+    },
+    {
+        "id": "96ab73d4.e666f",
+        "type": "change",
+        "z": "adc71ddf.1f101",
+        "name": "All OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 606,
+        "y": 279,
+        "wires": [
+            [
+                "415b8b5a.3d5864",
+                "533a573a.cac658",
+                "1bc30189.c504ce"
+            ]
+        ]
+    },
+    {
+        "id": "f150c279.744d5",
+        "type": "ui_group",
+        "z": "",
+        "name": "Col1",
+        "tab": "e498a43f.5268e8",
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "e498a43f.5268e8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "1-SwitchLEDs",
+        "icon": "dashboard"
+    }
+]

@@ -1,0 +1,290 @@
+[
+    {
+        "id": "8fb8cb67.969a38",
+        "type": "tab",
+        "label": "Flow 3"
+    },
+    {
+        "id": "863bff5.47dcd",
+        "type": "rpi-dht22",
+        "z": "8fb8cb67.969a38",
+        "name": "DHT11",
+        "topic": "rpi-dht11",
+        "dht": "11",
+        "pintype": "0",
+        "pin": "4",
+        "x": 226,
+        "y": 156,
+        "wires": [
+            [
+                "7a03c7e9.e8d598",
+                "e58ae233.00abd",
+                "fed0b33d.5c176"
+            ]
+        ]
+    },
+    {
+        "id": "7a03c7e9.e8d598",
+        "type": "function",
+        "z": "8fb8cb67.969a38",
+        "name": "Temp",
+        "func": "msg.payload = parseFloat(msg.payload).toFixed(2);\nglobal.set('s_temperature', \"The temperature is \" + Math.floor(msg.payload) + \" degrees\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 471,
+        "y": 102,
+        "wires": [
+            [
+                "dea894fe.878938",
+                "e95976e9.a773a8"
+            ]
+        ]
+    },
+    {
+        "id": "e58ae233.00abd",
+        "type": "function",
+        "z": "8fb8cb67.969a38",
+        "name": "RH",
+        "func": "msg.payload = parseFloat(msg.humidity).toFixed(2);\nglobal.set('s_humidity', \"The relative humidity is \" + Math.floor(msg.payload) + \" %\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 482,
+        "y": 209,
+        "wires": [
+            [
+                "65def8a3.b1e778",
+                "7e17d954.f05198"
+            ]
+        ]
+    },
+    {
+        "id": "dea894fe.878938",
+        "type": "ui_gauge",
+        "z": "8fb8cb67.969a38",
+        "name": "Temperature in °C",
+        "group": "aab60cb5.31d38",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "C",
+        "format": "{{value}}°C",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 739,
+        "y": 52,
+        "wires": []
+    },
+    {
+        "id": "65def8a3.b1e778",
+        "type": "ui_gauge",
+        "z": "8fb8cb67.969a38",
+        "name": "Relative Humidity",
+        "group": "2d6a0b2c.2466a4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Relative Humidity",
+        "label": "%",
+        "format": "{{value}}%",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 737,
+        "y": 186,
+        "wires": []
+    },
+    {
+        "id": "e95976e9.a773a8",
+        "type": "ui_chart",
+        "z": "8fb8cb67.969a38",
+        "name": "Temp. Chart",
+        "group": "aab60cb5.31d38",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "x": 762,
+        "y": 91,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7e17d954.f05198",
+        "type": "ui_chart",
+        "z": "8fb8cb67.969a38",
+        "name": "R.H. Chart",
+        "group": "2d6a0b2c.2466a4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "x": 730,
+        "y": 243,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2c09e0ca.6f568",
+        "type": "inject",
+        "z": "8fb8cb67.969a38",
+        "name": "",
+        "topic": "rpi-dht11",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "x": 147,
+        "y": 84,
+        "wires": [
+            [
+                "863bff5.47dcd"
+            ]
+        ]
+    },
+    {
+        "id": "c274dcc8.760b9",
+        "type": "ui_audio",
+        "z": "8fb8cb67.969a38",
+        "name": "Say Temp and Humidity",
+        "group": "aab60cb5.31d38",
+        "voice": "0",
+        "x": 553,
+        "y": 338,
+        "wires": []
+    },
+    {
+        "id": "5cbeccb4.40ce14",
+        "type": "rpi-gpio in",
+        "z": "8fb8cb67.969a38",
+        "name": "Pushbutton",
+        "pin": "37",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "x": 111,
+        "y": 341,
+        "wires": [
+            [
+                "873340ff.a060c"
+            ]
+        ]
+    },
+    {
+        "id": "873340ff.a060c",
+        "type": "function",
+        "z": "8fb8cb67.969a38",
+        "name": "Speak",
+        "func": "button = parseInt(msg.payload);\nif (button == 0) {\n    msg.payload = global.get('s_temperature') + \" and \" + global.get('s_humidity');\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 311,
+        "y": 339,
+        "wires": [
+            [
+                "c274dcc8.760b9"
+            ]
+        ]
+    },
+    {
+        "id": "23ca5b14.989194",
+        "type": "ui_button",
+        "z": "8fb8cb67.969a38",
+        "name": "",
+        "group": "aab60cb5.31d38",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Speak",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "",
+        "x": 221,
+        "y": 224,
+        "wires": [
+            [
+                "873340ff.a060c"
+            ]
+        ]
+    },
+    {
+        "id": "fed0b33d.5c176",
+        "type": "debug",
+        "z": "8fb8cb67.969a38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 390,
+        "y": 275,
+        "wires": []
+    },
+    {
+        "id": "aab60cb5.31d38",
+        "type": "ui_group",
+        "z": "",
+        "name": "Col1",
+        "tab": "2f51f2aa.ef734e",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "2d6a0b2c.2466a4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Col2",
+        "tab": "2f51f2aa.ef734e",
+        "order": 2,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "2f51f2aa.ef734e",
+        "type": "ui_tab",
+        "z": "",
+        "name": "DHT11",
+        "icon": "dashboard"
+    }
+]

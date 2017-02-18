@@ -1,0 +1,67 @@
+[
+    {
+        "id": "2fd67c71.27b104",
+        "type": "rpi-srf",
+        "z": "44e3cf52.be1c5",
+        "name": "HC-SR04",
+        "pins": "16,18",
+        "x": 163,
+        "y": 114,
+        "wires": [
+            [
+                "f3a89de2.e44aa"
+            ]
+        ]
+    },
+    {
+        "id": "f3a89de2.e44aa",
+        "type": "ui_gauge",
+        "z": "44e3cf52.be1c5",
+        "name": "",
+        "group": "116657c5.15bec8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "compass",
+        "title": "Distance Sensor ",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": "3",
+        "max": "420",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 360,
+        "y": 115,
+        "wires": []
+    },
+    {
+        "id": "5986925b.a28a6c",
+        "type": "comment",
+        "z": "44e3cf52.be1c5",
+        "name": "HC-SR04 Ultrasonic Ranging Sensor",
+        "info": "Input TRIG, ECHO Pin connections to GPIO Board",
+        "x": 264.5,
+        "y": 52,
+        "wires": []
+    },
+    {
+        "id": "116657c5.15bec8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Col1",
+        "tab": "c25acc96.9c359",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "c25acc96.9c359",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Sensor",
+        "icon": "dashboard"
+    }
+]

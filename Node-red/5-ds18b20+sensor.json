@@ -1,0 +1,34 @@
+[
+    {
+        "id": "44e3cf52.be1c5",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "e0b767e4.6fd1a8",
+        "type": "ds18b20",
+        "z": "44e3cf52.be1c5",
+        "name": "DS18B20 Sensor",
+        "sensorid": "28-01162564deee",
+        "timer": "1",
+        "x": 125.5,
+        "y": 210,
+        "wires": [
+            [
+                "dd4986a0.8f5ac8"
+            ]
+        ]
+    },
+    {
+        "id": "dd4986a0.8f5ac8",
+        "type": "debug",
+        "z": "44e3cf52.be1c5",
+        "name": "Temperature in  °C",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 419,
+        "y": 209,
+        "wires": []
+    }
+]
