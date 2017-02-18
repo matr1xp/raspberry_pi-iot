@@ -7,16 +7,17 @@
 4. HC-SR501 - Adjustable PIR Motion Detector Sensor
 
 ## Services:
-1. Adafruit IO - The Internet of Things for Everyone (https://learn.adafruit.com/adafruit-io)
-2. Initial State - Data Analytics for the Internet of Things (https://www.initialstate.com/)
-3. Node-RED - A visual tool for wiring the Internet of Things (https://nodered.org/)
+1. [Adafruit IO](https://learn.adafruit.com/adafruit-io) - **The Internet of Things for Everyone** 
+2. [Initial State](https://www.initialstate.com/) - **Data Analytics for the Internet of Things**
+3. [Node-RED](https://nodered.org/) - **A visual tool for wiring the Internet of Things**
 
 ## Programming:
-1. Python 
-2. Node.js
+1. **Python** 
+2. **Node.js**
 
-Source code is arranged in folders, e.g. "Python" contains all .py scripts, and "Node.js" contains .js etc.
-Circuit diagrams are in "Circuits" folder with "*_bb.png" files as 
+Source code is arranged in folders, e.g. **_/Python_** contains all **.py** files, and **_/Node.js_** contains **.js** scripts etc.
+
+Circuit diagrams are in **_/Circuits_** folder with **\*bb.png** files as 
 [Fritzing](http://fritzing.org/home/)
 diagrams.
 
