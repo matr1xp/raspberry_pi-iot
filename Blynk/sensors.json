@@ -1,0 +1,20 @@
+[
+  {
+    // DHT22 sensor
+    "uid": "dht22",
+    "append": true,
+    "watch": true,
+    "script": "dht22.js",
+    "sourceDir": "/home/pi/src/Blynk",
+    "args": ["-r","30"]
+  },
+  {
+    // DS18B20 sensor
+    "uid": "ds18b20",
+    "append": true,
+    "watch": true,
+    "script": "ds18b20.js",
+    "sourceDir": "/home/pi/src/Blynk",
+    "args": ["-r", "30"]
+  }
+]
