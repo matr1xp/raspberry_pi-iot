@@ -6,11 +6,16 @@
 3. DS18B20 - One-wire Digital Temperature Sensor
 4. HC-SR501 - Adjustable PIR Motion Detector Sensor
 
+## Actuators
+1. SG90 - Micro servo motor
+
 ## Services:
 1. [Adafruit IO](https://learn.adafruit.com/adafruit-io) - **The Internet of Things for Everyone** 
 2. [Initial State](https://www.initialstate.com/) - **Data Analytics for the Internet of Things**
 3. [Node-RED](https://nodered.org/) - **A visual tool for wiring the Internet of Things**
 4. [Blynk](https://www.blynk.cc) - **First drag-n-drop IoT app builder for Arduino, Raspberry Pi, ESP8266, and others**
+5. [ThingSpeak](https://thingspeak.com/) - **The open IoT platform with MATLAB analytics**
+
 ## Programming:
 1. **Python** 
 2. **Node.js**
