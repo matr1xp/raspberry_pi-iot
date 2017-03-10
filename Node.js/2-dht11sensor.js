@@ -1,5 +1,5 @@
 /**
- * DHT11 Humidity and Temperature sensor
+ * DHT11/22 Humidity and Temperature sensor
  * requires:
  *   npm install rpi-dht-sensor
  * run with:
