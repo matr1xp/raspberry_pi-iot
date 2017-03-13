@@ -55,25 +55,25 @@ try:
 
   while True:
     # Display system metrics
-	cpu_load = os.popen("top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'").read().strip('\n')
-	temperature = os.popen("vcgencmd measure_temp").read()[5:-3]
-	mem_free = os.popen("free -h | grep 'Mem:' | awk '{print $4}'").read()
-	disk_free = os.popen("df -h / | tail -1 | awk '{print $4}'").read()
+	  cpu_load = os.popen("top -d 0.5 -b -n2 | grep \"Cpu(s)\"|tail -n 1 | awk '{print $2 + $4}'").read().strip('\n')
+	  temperature = os.popen("vcgencmd measure_temp").read()[5:-3]
+	  mem_free = os.popen("free -h | grep 'Mem:' | awk '{print $4}'").read()
+	  disk_free = os.popen("df -h / | tail -1 | awk '{print $4}'").read()
 
-	# Write 4 lines of text.
-	draw.text((x, top),    'CPU Temp: %s\xB0C' % temperature,  font=font, fill=255)
-	draw.text((x, top+16), 'CPU Load: %s%%' % cpu_load,  font=font, fill=255)
-	draw.text((x, top+32), 'Mem Free: %s' % mem_free,  font=font, fill=255)
-	draw.text((x, top+48), 'DiskFree: %s' % disk_free,  font=font, fill=255)
+	  # Write 4 lines of text.
+	  draw.text((x, top),    'CPU Temp: %s\xB0C' % temperature,  font=font, fill=255)
+	  draw.text((x, top+16), 'CPU Load: %s%%' % cpu_load,  font=font, fill=255)
+	  draw.text((x, top+32), 'Mem Free: %s' % mem_free,  font=font, fill=255)
+	  draw.text((x, top+48), 'DiskFree: %s' % disk_free,  font=font, fill=255)
 
-	# Display image.
-	disp.image(image)
-	disp.display()
-	time.sleep(INTERVAL)
+	  # Display image.
+	  disp.image(image)
+	  disp.display()
+	  time.sleep(INTERVAL)
 
-	# Clear for next display
-	# Draw a black filled box to clear the image.
-	draw.rectangle((0,0,width,height), outline=0, fill=0)
+	  # Clear for next display
+	  # Draw a black filled box to clear the image.
+	  draw.rectangle((0,0,width,height), outline=0, fill=0)
 except IOError:
 	print("IOError: Please check your OLED display connection.")
 except KeyboardInterrupt:
